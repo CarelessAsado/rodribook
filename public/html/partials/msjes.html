@@ -1,0 +1,29 @@
+<article class="Fb-message sombra" >
+    <div class="header flex">
+        <div id="sexoLogo">
+            {{sexo}}
+        </div>
+        <div class="nameYfecha flex column">
+            <div class="name Fbgrey">
+                <strong class="Fbwhite">{{nombre}}</strong> te ha comentado
+            </div>
+            <div class="fechadelMsje Fbgrey">
+               <em>Publicado el {{fecha}}</em> 
+            </div>
+        </div> 
+    </div>
+    <div id="MsjeCentral">
+            {{msje}}
+    </div>
+ 
+    <div class="footermsjeIndividual">
+        <div class="likesNrito">
+            <i class="fas fa-thumbs-up" id="logolikes-estatico"></i><span class="nroslikes">{{likes}}</span>
+        </div>
+
+        <div class="likesPUTreq" data-_id="{{_id}}">
+            <i class="far fa-thumbs-up" id="likeBtnPUTreq"></i>
+            <strong class="">Me gusta</strong>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,711 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Lobster&family=PT+Sans&family=Roboto+Mono:ital,wght@1,100&family=Roboto:wght@100&display=swap');
+:root{
+    --blue:#1c2d4c;
+    --transition:.5s;
+    --black: rgb(29, 27, 27);
+    --white: whitesmoke;
+    --whiteMainTag: white;
+    --fontAgustinRocha:.9rem;
+    --fontChica:1.1rem;
+    --fontMed:1.5rem;
+    --fontGrande:2rem;
+    --fontSuperG: 2.5rem;
+    --fbBody:#18191a;
+    --fbMessageBody:#242526;
+    --fb3erBody:rgb(66, 66, 75);
+    --fbFontColorNormal:#e4e6eb;
+    --fbFontGrey: rgb(66, 66, 75);
+    --fbBackgroundTransparente: #7f8083;
+    --fbBlueOficial:#4267B2;
+    --fbBlueOficial2:#4569b1;
+    --fbBlueBackgroundUser: #2D88FF33;
+    --fbHoverColor: rgba(255,255,255,0.1);
+    --greyless:rgb(180, 174, 174);
+    --light:rgb(226, 220, 220);
+    --lightBorderBtns: rgba(240,246,252,.1);
+    --lightblue:#1877f2;
+    --green:#42b72a;
+}
+
+
+a{text-decoration: none;
+    color: inherit; 
+}
+
+.successMsjeEnviadoYGuardado{
+    margin-top: 10px;
+    color: rgb(70,136,71);
+    border-radius: 5px;
+    background-color: rgb(223,240,216);
+    position: relative;
+    overflow: hidden;
+}
+label.closeSuccess{
+    position: absolute;
+    right: 0px;
+    top:50%;
+    transform: translateY(-50%);
+    background-color:rgb(70,136,71); ;
+    cursor: pointer;
+    padding: 20px;
+    color: rgb(35, 88, 35);
+}
+#logoRodriBook{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 2px;
+    background-color: var(--fbBlueOficial);
+    color: var(--fbFontColorNormal);
+    margin: 100px 0 80px 0;
+    padding: 20px 0;
+    border-radius:18% 82% 19% 81% / 100% 0% 100% 0% ;
+    font-weight: 300;
+    font-size: var(--fontGrande);
+
+}
+.radiobtnsGroup{
+    background-color: var(--whiteMainTag);
+    padding: 16px;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: var(--fbBody);
+    display: flex;
+    /*Radio button = responsive*/
+    flex-wrap: wrap;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    
+}
+.radiobtnsGroup>*{
+    margin-top: 5px;
+}
+
+
+/*--------------ALERTS----------------------*/
+.alert-item{
+    display: block;
+    background-color: rgb(236, 132, 132);
+    color: rgb(196, 34, 34);
+    font-weight: bold;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px 0;
+
+  
+}
+label.close{
+    position: absolute;
+    right: 0px;
+    top:50%;
+    transform: translateY(-50%);
+    padding: 40px 20px;
+    background-color:rgb(233, 86, 86) ;
+    cursor: pointer;
+
+
+}
+label.close:hover{
+ 
+    background-color:rgb(219, 107, 107) ;
+    color:rgb(43, 7, 7);
+}
+
+
+/*Esto es comun al success y al error alert*/
+.text-alert{
+  /*evitar overflow x encima del close icon*/
+    padding: 10px 70px 10px 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    
+}
+label.close:hover, label.closeSuccess{
+    opacity: 0.9;
+}
+.alertinputaborrar{
+    display: none;
+}
+input.alertinputaborrar[type=checkbox]:checked ~*{
+    display: none;
+}
+/*capaz pueda eliminar esto dsp*/
+.center.fas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+/*----sombra containers----------------*/
+.sombra{
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+}
+
+/*--------------------------RELOJ/ CUENTA REGRESIVA--------------------------------------*/
+body{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--white);
+    color: var(--fbBody);
+    
+}
+
+
+main{
+    padding: 16px;
+    font-family: 'Roboto', sans-serif;
+    min-height: 60vh;
+    margin-bottom: 60px;
+    /*para q no se choque con el fixed nav*/
+    margin-top: 80px;
+    background-color: var(--whiteMainTag);
+    color: var(--fbBody);
+    border-radius: 5px;
+}
+/*--------header del count down--------*/
+#fieldsetCtDown{
+
+position: relative;
+border: rgb(42, 110, 59) 3px solid;
+}
+header{
+    padding: 60px 0;
+}
+.legendAbajo{
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--whiteMainTag);
+  
+}
+img.billetinLegend{
+    height:50px ;
+    width: 50px;
+}
+img.billetinLegend.izq{
+    transform: rotate(15deg);
+}
+img.billetinLegend.dcha{
+    transform: rotate(-15deg);
+}
+.legendCentrada{
+    /*con esto se centra el legend dentro del fieldset*/
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.texto-cuentaRegresiva{
+    text-align: center;
+    margin:20px 20px 40px 20px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-family: 'Lobster', cursive;
+
+}
+/*-----------------*/
+.seccion{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue);
+    color: var(--fbFontColorNormal);
+
+    border-radius: 5px;
+    box-shadow: 10px 10px 27px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 27px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 27px 0px rgba(0,0,0,0.75);
+}
+.seccion h4{
+    font-size: var(--fontSuperG);
+}
+.seccion h4.semanas,
+.seccion h4.dias{
+font-size: 4rem;
+}
+#cuentaRegresiva{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    place-items: center;
+    margin: 30px 0;
+    grid-row-gap:20px
+}
+.seccion.semanas, .seccion.dias{
+    height: 170px;
+    width: 170px;
+    grid-column: span 3;
+    font-size: 2.5em;
+}
+
+.seccion.horas, .seccion.minutos, .seccion.segundos {
+    margin-top: 20px;
+    grid-column: span 2;
+    height: 100px;
+    width: 100px;
+
+}
+#newYear2022IMG{
+    width: 100%;
+    background-size:cover
+    
+}
+
+
+
+@media only screen and (max-width: 400px)  {
+    img.billetinLegend{
+        width: 30px;
+    } 
+}
+
+
+
+/*-----------------ESTILO DE LOS MENSAJES FACEBOOKEROS------------------*/
+#foroFacebookero{
+    padding-bottom: 15px;
+}
+article.Fb-message{
+background-color: var(--whiteMainTag);
+min-height: 250px;
+border-radius: 10px;
+color: var(--fbBody);
+padding: 16px;
+margin: 16px 0;
+/*pal footer*/
+position: relative;
+}
+#sexoLogo{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fbBackgroundTransparente);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+#sexoLogo:hover{
+    /* opacity: 0.8; */
+    transition: var(--transition);
+    background-color: rgba(255,255,255,0.3)
+
+}
+.fas, .far{
+    font-size: var(--fontMed);
+}
+.nameYfecha{
+    padding-left: 10px;
+}
+.Fbgrey{
+    color: var(--fbFontGrey);
+}
+.Fbwhite{
+    color: var(--fbBody);
+}
+strong.Fbwhite{
+    padding-right: 6px;
+}
+.fechadelMsje{
+    padding-top: 5px;
+    font-size: var(--fontAgustinRocha);
+}
+#MsjeCentral{
+    padding-top: 20px;
+    /*para no overflowear el footer q esta en absolute pos
+    cuando estamos en responsive*/
+    margin-bottom: 50px;
+    /*Si ponia una palabra gigante sin espacion generaba overflow*/
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.likesNrito{
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.footermsjeIndividual{
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    right: 18px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;   
+}
+.likesPUTreq{
+    border-radius: 5px;
+    border-top: var(--fbFontGrey) solid 1px;
+    height:30px;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+    justify-content: center;
+    cursor: pointer;   
+    transition: var(--transition);
+}
+
+.likesPUTreq.Likeado{
+    transition: var(--transition);
+    background-color: var(--fbBlueOficial);
+    pointer-events: none;
+
+
+}
+/*Para q el e.target sea siempre el boton likear y no
+el i tag o el text*/
+.likesPUTreq>*{
+    pointer-events: none;
+}
+.likesPUTreq:hover{
+    background: var(--fbHoverColor)
+}
+
+#likeBtnPUTreq{
+    font-size: 15px;
+    color: var(--fbFontGrey);
+    margin-right: 8px;
+    
+}
+
+#logolikes-estatico{
+    background-color: var(--fbBlueOficial);
+    color: var(--fbFontColorNormal);
+    border-radius: 50%;
+    font-size: 10px;
+    height: 16px;
+    width: 16px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+span.nroslikes{
+    color: var(--fbFontGrey);
+    font-size: 13px;
+    font-weight: 300;
+
+}
+.flex{
+    display: flex;
+}
+.flex.column{
+    flex-direction: column;
+}
+
+
+
+/*-------------------HEADER BACKEND------------------------*/
+/*----------------Animación letras------------------------*/
+.headerBackend{
+    text-align: center;
+    padding: 30px;
+    font-size: var(--fontMed);
+    letter-spacing: 2px;
+    border-radius: 5px;
+    background-color: var(--whiteMainTag);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.animation3 {
+    position: relative;
+    color: var(--fbBody);
+    background-color: var(--whiteMainTag);
+  }
+  
+  .animation3 > span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90px;
+    background-color: var(--whiteMainTag);
+    border-left: 1px solid transparent;
+    animation: Fwrite 10s steps(43, start) infinite, cursor 0.5s step-end infinite;
+      -webkit-animation: Fwrite 10s steps(43, start) infinite, cursor 0.5s step-end infinite;
+  }
+  
+  
+  @keyframes Fwrite {
+    0% {
+      width: 100%;
+    }
+    70%, 100% {
+      width: 0;
+    }
+  }
+  
+  @keyframes cursor {
+    0% {
+      border-left-color: transparent;
+    }
+    50% {
+      border-left-color: black;
+    }
+    100% {
+      border-left-color: transparent;
+    }
+  }
+  
+  @-webkit-keyframes Fwrite {
+    0% {
+      width: 100%;
+    }
+    70%, 100% {
+      width: 0;
+    }
+  }
+  
+  @-webkit-keyframes cursor {
+    0% {
+      border-left-color: transparent;
+    }
+    50% {
+      border-left-color: black;
+    }
+    100% {
+      border-left-color: transparent;
+    }
+  }
+
+/*----------------------------BACKEND-----------------------*/
+/*-------------------------FORM + BASE DE DATIS---------------*/
+
+#seccionBackend{   
+    background-color: var(--whiteMainTag);
+    color: var(--fbBody);
+    border-radius: 5px;
+    margin-top: 60px;
+    padding-top: 60px;
+    margin: 0 auto;
+    padding: 16px;
+    margin-bottom: 70px;
+
+}
+#inputNombre{
+
+    display: block;
+    margin-bottom: 25px;
+    padding: 5px;
+    border:5px solid var(--fbBlueOficial);
+    outline: 0;
+    font-size: var(--fontChica);
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+#inputSaludo{
+    
+    width: 100%;
+    font-size: var(--fontChica);
+    border:5px solid var(--fbBlueOficial);
+    outline: 0;
+    padding: 5px;
+    min-height: 100px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.btn.EnviarSaludo{
+    margin-top: 50px;
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    font-size: var(--fontChica);
+    border-radius: 5px;
+    border:1px solid var(--blue);
+    background-color: var(--fbBlueOficial);
+    color: var(--fbFontColorNormal);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn.EnviarSaludo:hover{
+    background-color: rgb(73, 73, 211);
+}
+
+
+/*----------------RADIO BUTTONS---------------------------*/
+fieldset{
+    border:var(--fbBlueOficial) 3px solid;
+    margin: 10px 0
+    
+}
+legend{
+    margin-left: 16px;
+    padding-right: 3px;
+    color: var(--fbBody);
+    font-size: var(--fontAgustinRocha);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+}
+
+.radiobtnsGroup input[type="radio"]{
+    display: none;
+}
+.radiobtnsGroup input[type="radio"]:checked+label{
+    background: var(--fbBlueOficial);
+    padding-left: 5px;
+}
+.radiobtnsGroup input[type="radio"]:checked+label::before{
+    transition: var(--transition);
+    display: none;
+}
+.radiobtnsGroup label{
+    padding-left: 40px;
+    padding-right: 5px;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: var(--transition);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+/*--------circulo q reemplaza Cbox-----*/
+.radiobtnsGroup label::before{
+    content: "";
+    border: 3px solid var(--fbBlueOficial);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    border-radius: 50%;
+    background-color: var(--fbFontColorNormal);   
+}
+.radiobtnsGroup label:hover{
+    background: rgba(66, 103, 178,0.6) ;
+}
+
+/*---------------------------*/
+.lineaSeparadora{
+    width: 100%!important;
+    height: 3px;
+    background-color: teal;
+}
+
+/*-------------------------------------------------------------*/
+footer{
+    padding: 10px 0;
+    text-align: center;
+    border-top: var(--fbFontGrey) solid 1px;
+    color: var(--fbBlueOficial);
+    font-weight: 300;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+    font-size: 17px;
+}
+
+footer span {
+    padding-top: 5px;
+    color: var(--green)
+}
+
+/*-------------------MEDIA QUERY------------------------*/
+@media only screen and (max-width: 608px)  {
+    body{
+        margin: 0 10px;
+    } 
+    
+}
+/*---------------------------ACA TERMINA LO DE USER PROFILE-------*/
+/*Evitar overflow de la animacion x sobre el padding q tapa la magia*/
+
+@media screen and (max-width: 500px){
+    .headerBackend{
+        font-size:var(--fontChica);
+    }
+    #inputNombre{
+        width: 100%;
+    }
+    /*---al count down achicarle semanas y dias pasado un width max-*/
+    .seccion.semanas, .seccion.dias{
+        height: 130px;
+        width: 120px;
+        font-size: 2.1em;
+        padding-top: 10px;
+    }
+    
+    .seccion.semanas span, .seccion.dias span{
+        font-size: 25px;
+        padding-bottom: 20px;
+    }
+    .seccion.horas, .seccion.minutos, .seccion.segundos {
+        margin-top: 20px;
+        height: 80px;
+        width: 80px;
+    
+    }
+    #sexoLogo{
+        width: 10px;
+        height: 10px;
+        padding: 20px;
+    }
+}
+@media screen and (max-width: 322px){
+    .animation3 > span {
+    
+        height: 100px;
+
+      }
+}
+
+/*------------------------------------------------*/
+.emoticons {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(180, 177, 177);
+    border-radius: 5px;
+}
+button.emoticon{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid black;
+    transition: var(--transition);
+    font-weight: bold;
+}
+button.emoticon:hover{
+    transition: var(--transition);
+    background-color: rgb(204, 170, 170);
+}
+
+
+
+
+
+
+
+
+
+
+
+

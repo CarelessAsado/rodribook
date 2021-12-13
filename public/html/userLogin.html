@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/public/img/fav.ico" type="image/x-icon"/>
+                                <!-- se linkea de public ya q ahi dirigi el express.Static -->
+    <link rel="stylesheet" href="/public/style/login.css">
+    <script src="https://kit.fontawesome.com/ec87a17681.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="btnTheme">
+        <input type="checkbox" id="Cboxtheme">
+        <label for="Cboxtheme" class="Cboxlabel">
+            <div class="circulo"></div>
+        </label>
+    </div>
+    <div id="transparenciaOverlay">
+        <div class="overlay">
+
+            <header>
+                <h2>Registrate</h2>
+                <p>Es rápido y fácil.</p>
+                <i class="fas fa-times" id="closeRegisterOverlay" onclick="closeRegisterOverlay()"></i>
+            </header>
+            <form id="registerFormAxios">
+
+                <label for="nombreReg"></label>
+                <input 
+                    type="text" 
+                    id="nombreReg"
+                    placeholder="Nombre *"
+                    autofocus
+                >
+
+                <label for="emailReg"></label>
+                <input 
+                    type="email" 
+                    id="emailReg"
+                    placeholder="Email *"
+                >
+
+                <label for="passwordReg"></label>
+                <input 
+                type="password" 
+                id="passwordReg"
+                placeholder="Contraseña *"
+                >
+
+                <label for="confirmPasswordReg"></label>
+                <input 
+                type="password" 
+                id="confirmPasswordReg"
+                placeholder="Confirmá la contraseña *"
+                >
+                <div class="errorContainer" id="errorContainerRegister"></div>
+                <div class="successContainer" id="successContainerRegister"></div>
+                <div class="marginLine"></div>
+                <div class="registerBtn" id="registerBtnOverlay" onclick="axiosRegisterPost()">Registrate</div>
+            </form>
+        </div>
+    </div>
+    <div id="page-container">
+        
+            <main class="gridContainer">
+                <div class="gridDcha">
+                    <h1 id="tituloRodribook">rodribook</h1>
+                    <p>Foro social para mantenerte en contacto con tus amigos.</p>
+                </div>
+                <div class="gridIzq">
+                    <form id="loginForm" >
+        
+                        <label for="email"></label>
+                        <input 
+                            type="email" 
+                            name="" 
+                            id="email"
+                            placeholder="Email *"
+                            autofocus
+                        >
+        
+                        <label for="password"></label>
+                        <input 
+                        type="password" 
+                        name="" 
+                        id="password"
+                        placeholder="Contraseña *"
+                        >
+                        <input type="submit" value="Iniciar sesión">
+                        <div class="errorContainer" id="errorContainerLogin"></div>
+                        <div class="marginLine"></div>
+                        <div class="registerBtn" id="abrirRegisterOverlay" onclick="showOverlay()">Crear cuenta nueva</div>
+                    </form>
+                    <div class="textoAdicional">
+                        <strong>Creá una página </strong>y conectate con tus amigos alrededor del mundo.
+                    </div>
+                </div>
+            </main>
+    </div>
+
+   <footer id="footer">
+        contacto@rodrigohernanlopez.com.ar |<span> Rodrigo Hernán López </span> 
+    </footer>
+
+</body>
+<!-- el link AXIOS tiene q estar arriba p q funcione el archivo Js-->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/public/components/userLoginRegister.js"></script>
+<script src="/public/components/themeBtn.js"></script>
+
+</html>

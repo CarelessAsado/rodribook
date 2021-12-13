@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Lobster&family=PT+Sans&family=Roboto+Mono:ital,wght@1,100&family=Roboto:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white:#fff;
+    --white2:rgb(248, 242, 242);
+    --lightblue:#1877f2;
+     --green:#42b72a; 
+     --overlayReg: rgba(254,254,254,.8);
+
+    --grey:rgb(133, 133, 133);
+    --greyless:rgb(180, 174, 174);
+    --light:rgb(226, 220, 220);
+    --transition: .6s;
+    --fbBlueOficial:#4267B2;
+    
+    --fbBody:#18191a;
+    --fbMessageBody:#242526;
+    --fb3erBody:rgb(66, 66, 75);
+    
+
+}
+body{
+    max-width: 980px;
+    margin: auto;
+    background-color: var(--white);
+    transition: var(--transition);
+    color: var(--fbBody)
+}
+html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+/**********************************/
+.gridContainer{
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    grid-column-gap: 40px;
+    margin: 30px;
+}
+.gridDcha{
+    padding: 20px 20px 30px;
+    align-self: flex-start;
+}
+#tituloRodribook{
+
+    color: var(--lightblue);
+
+    font-weight: bold;
+    font-size: 3.5rem;
+    padding: 20px 0;
+}
+.gridDcha p {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+}
+
+form#loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 30px;
+    max-width: 370px;
+    background-color: var(--white2);
+    border: 1px solid var(--light);
+    border-radius: 3px;
+    box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+}
+form input{
+    border-radius: 6px;
+    border: 1px solid var(--light);
+    letter-spacing: 1px;
+    padding: 14px 16px;
+    margin: 7px 0;
+    font-size: 17px;
+    /*Sin esto se contrae*/
+    width: 100%;
+}
+input:focus{
+    outline: none;
+    border: 1px solid var(--lightblue);
+}
+input:focus::-webkit-input-placeholder {
+    color: var(--greyless);
+}
+input[type="submit"],.registerBtn {
+
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+
+    color: #fff;
+
+}
+input[type="submit"]{
+    padding: 0 16px;
+    width: calc(100% -32px);
+    background-color: var(--lightblue);
+    cursor: pointer;
+}
+.marginLine{
+    
+    height: .2px;
+    width: 100%;
+    border:.1px solid var(--light);
+    margin:50px 0 30px 0;
+}
+.registerBtn{
+    padding: 0 12px;
+    letter-spacing: 1px;
+    width: 170px;
+    background-color: var(--green);
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+
+}
+.textoAdicional{
+    padding: 30px 20px 30px;
+    max-width: 370px;
+}
+@media screen and (max-width: 720px){
+    .gridContainer{
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+    .gridDcha{
+        text-align: center;
+        max-width: 370px;
+        align-self: center;
+    }
+}
+/*p mantener el footer abajo*/
+#page-container {
+    flex: 1 0 auto;
+  }  
+
+footer{
+
+    flex-shrink: 0;
+    padding: 15px 30px;
+    text-align: center;
+    border-top: var(--light) solid 1px;
+    color: var(--fbBlueOficial);
+    font-weight: 300;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+    font-size: 17px;
+    line-height: 25px;
+ 
+   
+}
+
+footer span {
+    padding-top: 5px;
+    color: var(--green)
+} 
+@media (max-width: 416px){
+    footer {  
+        font-size: 15px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;   
+    } 
+  }
+  @media (max-width: 416px){
+    .gridDcha{
+        padding-left: 0;
+        padding-right:0 ;
+    }
+}
+  
+/*-------------------------------------------*/
+/*-----------REGISTER OVERLAY-----------------*/
+#transparenciaOverlay{
+    background-color: var(--overlayReg);
+    /*---inicialmente le habia puesto absolute y funcionaba bien, el tema es q en user profile no
+    estiraba al fondo, fixed lo solucionó*/
+    position: fixed;
+    top:0;
+    /*Se cortaba antes del fin de la pagin*/
+    bottom: 0;
+    left:0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+.overlay{
+    background-color: var(--white);
+    max-width: 415px;
+    padding: 20px 20px 30px;
+    border: 1px solid var(--light);
+    border-radius: 3px;
+    box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    /*para cuando sea responsive*/
+    margin: 0 10px;
+}
+
+.overlay header{
+    border-bottom: 1px solid var(--light);
+    margin-bottom: 10px;
+    position: relative;
+}
+.overlay header h2{
+    font-size: 30px;
+    padding-bottom:3px ;
+}
+.overlay header p{
+    padding-bottom:10px ;
+}
+i#closeRegisterOverlay{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#registerBtnOverlay{
+    margin: 0 auto;
+    line-height: 35px;
+    font-size: 18px;
+}
+.errorContainer{
+    color:crimson;
+}
+.successContainer{
+    color: rgb(63, 168, 77);
+}
+/*-----------------------------------------------------------*/
+/*--------------BTN DARK THEME-----------------------------*/
+.btnTheme input[type=checkbox]{
+    display: none;
+ }
+ .btnTheme label{
+     z-index: 555;
+     position: absolute;
+     top: 19px;
+     right: 20px;
+     height: 23px;
+     background-color: var(--fb3erBody);
+     width: 40px;
+     display: flex;
+     justify-content: left;
+     align-items: center;
+     padding: 0 2px;
+     border-radius: 10px;
+ } 
+ label .circulo{
+     background-color: var(--green);
+     height: 15px;
+     width: 15px;
+     border-radius: 50%;
+ } 
+ .btnTheme input:checked ~*{
+     transition: .2s;
+     background-color: var(--lightblue);
+     justify-content: right;
+ }
+ 
+ 
+
+                                        

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/public/img/fav.ico" type="image/x-icon"/>
+                                    <!-- se linkea de public ya q ahi dirigi el express.Static -->
+        <link rel="stylesheet" href="/public/style/userProfile.css">
+        <link rel="stylesheet" href="/public/style/nav.css">
+        <script src="https://kit.fontawesome.com/ec87a17681.js" crossorigin="anonymous"></script>
+        <!-- poner dinamico con user.name -->
+        <title>Usuario</title>
+    </head>
+</head>
+<body>
+
+        <div id="transparenciaOverlayBorrarCuenta" class="transparenciaOverlay">
+            <div class="overlay">
+    
+                <header>
+                    <h3>Borrar cuenta</h3>
+                    <p>¿Estás completamente seguro?</p>
+                    <i class="fas fa-times" id="closeDeleteAccountOverlay" onclick="closeDeleteAccountOverlay()"></i>
+                </header>
+                <div class="bannerBorrarCuenta">
+                    Esta acción es irreversible. Borraremos tu cuenta junto con tus datos. Confirmá tu contraseña por favor.
+                </div>
+                <form >
+    
+    
+    
+                    <label for="passwordDeleteReq"></label>
+                    <input 
+                    type="password" 
+                    id="passwordDeleteReq"
+                    placeholder="Contraseña *"
+                    >
+    
+                    <!-- ver si borro aunq sea success -->
+                    <div class="errorContainer" id="errorContainerDeleteReq"></div>
+                    <div class="successContainer" id="successContainerDeleteReq"></div>
+                    <div class="marginLine"></div>
+
+                    <div class="confirmAccountDeletionBtn deleteBtn" id="confirmAccountDeletionBtn" onclick="axiosDeleteRequest()">Borrar cuenta</div>
+                </form>
+            </div>
+        </div>
+        <div id="transparenciaOverlayModificarPass" class="transparenciaOverlay">
+            <div class="overlay">
+                <header>
+                    <h3>Modificar contraseña</h3>
+                    <i class="fas fa-times" id="closeDeleteAccountOverlay" onclick="closeDeleteAccountOverlay()"></i>
+                </header>
+                <div class="bannerBorrarCuenta">
+                    Completá los datos por favor.
+                </div>
+                <!-- creo q esto es identico ver si sacarlo modifica algo -->
+                <form>
+    
+    
+    
+                    <label for="oldPasswordChange"></label>
+                    <input 
+                    type="password" 
+                    id="oldPasswordChange"
+                    placeholder="Vieja contraseña *"
+                    required
+                    >
+                    <label for="newPasswordChange"></label>
+                    <input 
+                    type="password" 
+                    id="newPasswordChange"
+                    placeholder="Nueva contraseña *"
+                    required
+                    >
+    
+                    <label for="confirmPasswordChange"></label>
+                    <input 
+                    type="password" 
+                    id="confirmNewPasswordChange"
+                    placeholder="Confirmá la contraseña *"
+                    required
+                    >
+                    <!-- ver si borro aunq sea success -->
+                    <div class="errorContainer" id="errorContainerChangePass"></div>
+                    <div class="successContainer" id="successContainerChangePass"></div>
+                    <div class="marginLine"></div>
+
+                    <button class="confirmAccountDeletionBtn deleteBtn" id="confirmPasswordChangeBtn" onclick="axiosPasswordUpdateRequest()" type="button">Modificar contraseña</button>
+                </form>
+            </div>
+        </div>
+
+    <nav>
+        <div class="btnTheme">
+            <input type="checkbox" id="Cboxtheme">
+            <label for="Cboxtheme" class="Cboxlabel">
+                <div class="circulo"></div>
+            </label>
+        </div>
+ 
+        <div class="nav-center">
+            <nav-header class="espaciar">
+                <div class="logo">
+                    <a href="/">
+                        <div  class="logoPed">
+                            r
+                        </div>
+                    </a>
+                </div> 
+
+
+                <div class="nav-button">
+                    <div class="burger-dash">
+                    </div>
+                </div>
+
+            </nav-header>  
+
+            <ul class="links">
+        
+                <li class="homeactive">
+                    <!-- cambiar esto dinamicamente dsp -->             
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="userName" id="nameTagAxios"></span>
+                    </a>
+                </li>
+    
+                <li >
+                    <a href="#footer">Contacto</a> 
+                </li>
+
+                <li>                    
+                    <a id="logOutBtn" href="/user/logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+            </ul> 
+        </div>
+    </nav>
+    <div id="page-container">
+        <main >
+            <h1>Información de usuario</h1>
+            <div class="marginLine"></div>
+            <div id="formAlertMessages"></div>
+               
+            <form class="userNombreContainer" id="userNombreContainer">
+              <input type="text" id="userNombre" value="" readonly> 
+                <div class="editBtnscontainer">
+                    <button class="editBtn" type="submit">Editar</button>
+                </div>
+            </form>
+            <form class="userEmailContainer" id="userEmailContainer">
+               <input type="text" id="userEmail" value="" readonly> 
+               <div class="editBtnscontainer">
+                <button class="editBtn" type="submit">Editar</button>
+               </div>
+            </form>
+            <form class="userPasswordContainer" onclick="showOverlay('transparenciaOverlayModificarPass')">
+                <div id="userPassword" >Modificar contraseña</div>
+            </form>
+        </main>
+
+        <section id="deleteContainer">
+            <h2>Zona de peligro</h2> 
+            <div class="marginLine"></div>
+            <form id="deleteForm">
+                <div class="textoDelete">
+                    <h3>Borrar Cuenta</h3>
+                    <p>¡Ojo! Si borrás la cuenta no hay vuelta atrás.</p>
+                </div>
+                <button id="deleteBtn" class="deleteBtn" onclick="showOverlay('transparenciaOverlayBorrarCuenta')" type="button">Borrar</button>
+            </form>
+        </section>
+    </div>
+
+    <footer id="footer">
+        contacto@rodrigohernanlopez.com.ar |<span> Rodrigo Hernán López </span> 
+    </footer>
+
+
+    <!-- AXIOS -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- JS Components -->
+<script src="/public/components/user/userProfileAxios.js"></script>
+<script src="/public/components/navFunctionality.js"></script>
+<script src="/public/components/themeBtn.js"></script>
+</body>
+</html>

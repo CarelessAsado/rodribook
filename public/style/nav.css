@@ -1,0 +1,228 @@
+/*-----------------------NAV- --------------------------------------*/
+.links .homeactive{
+    background-color: var(--fbBlueBackgroundUser);
+    border-radius: 20px;
+    padding-right: 20PX;
+    padding-left: 20px;
+}
+.homeactive span.userName{
+    color: var(--fbBlueOficial);
+}
+.logo{
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 75px;
+    color: var(--fbFontColorNormal);
+    background: linear-gradient(rgb(58, 111, 161) 0%, rgb(50, 35, 139) 50%, rgb(91, 133, 223) 100%);
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
+  
+}
+.logo .logoPed{
+    position: absolute;
+    bottom: -25px;
+    left: 12px;
+}
+
+nav{
+    background-color:var(--fbMessageBody);
+    opacity: .98;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 150px;
+    height: 60px;   
+    z-index: 500;
+}
+.nav-center{
+    height: 60px; 
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+nav-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-button{
+    background-color: #242526;
+    height: 40px;
+    width: 40px;
+    border: 1px white solid;
+    border-radius: 10px;
+    display: none;  
+}
+.nav-button:hover{
+    cursor: pointer;
+
+}
+.burger-dash{
+    
+    height: 2px;
+    width: 25px;
+    border-radius: 7px;
+    background-color: white;
+    border-style: none;
+    position: relative;
+}
+.burger-dash::before{
+    width: 25px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    content: "";
+    height: 2px;
+    background-color: white;
+    border-radius: 7px;
+
+}
+.burger-dash::after{
+    width: 25px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    content: "";
+    height: 2px;
+    background-color: white;
+    border-radius: 7px;
+}
+.links{
+    display: flex;
+    align-items: center;
+    
+}
+ul{
+    list-style: none;
+    
+}
+li{
+    color: var(--fbFontColorNormal);
+    background-color: var(--fbMessageBody);
+    font-size: var(--fontMed);
+    border-radius: 20px;
+    margin:  0 5px;
+    cursor: pointer;
+    padding: 5px;
+    transition: var(--transition);
+    position: relative;
+}
+.links .homeactive:hover{
+    background-color: rgba(255,255,255,0.6);
+}
+.links li:hover{
+    background-color: rgba(54, 62, 77, 0.8);
+}
+#logOutBtn {
+
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    color: var(--fbFontColorNormal);
+    text-align: center;
+    line-height: 30px;
+}
+/*-----------------------------------------------------------*/
+/*--------------BTN DARK THEME-----------------------------*/
+.btnTheme input[type=checkbox]{
+    display: none;
+ }
+ .btnTheme label{
+     z-index: 555;
+     position: absolute;
+     top: 19px;
+     right: 20px;
+     height: 23px;
+     background-color: var(--fb3erBody);
+     width: 40px;
+     display: flex;
+     justify-content: left;
+     align-items: center;
+     padding: 0 2px;
+     border-radius: 10px;
+ } 
+ label .circulo{
+     background-color: var(--green);
+     height: 15px;
+     width: 15px;
+     border-radius: 50%;
+ } 
+ .btnTheme input:checked ~*{
+     transition: .2s;
+     background-color: var(--lightblue);
+     justify-content: right;
+ }
+ 
+
+ /*-----------------------------RESPONSIVE NAV/BURGER MENU------------------------------*/
+@media only screen and (max-width: 1106px)  {
+    nav{
+        padding: 0 100px;
+
+    }
+}
+@media screen and (max-width: 700px){
+    .btnTheme label{
+        transform: rotate(90deg);
+      right: 3px;
+    }
+
+    /* sino saco padding me sobresale el nav en absolute*/
+    nav{
+        padding: 0;    
+    }
+
+    nav-header{
+        padding: 0 50px 0 30px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .nav-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .links{
+        
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top:60px;
+        left:-100%; 
+        background-color: var(--fbFontColorNormal);
+        transition:var(--transition)
+    }
+    .links.active{
+        transition: var(--transition);
+        left: 0;
+    }
+    li{
+        /*le saco esto q va cuando esta en modo compu*/
+        border-radius: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .links li:hover{
+        background-color: rgba(25, 27, 32, 0.8);
+    }
+    .links .homeactive {
+        background-color: var(--fbBlueOficial);
+        color:var(--fbBody);
+        border-radius: 0;
+    }
+    .homeactive span.userName{
+        color:var(--fbBody);
+
+    }
+    .homeactive:hover{
+        color: rgb(34, 189, 236);
+        background-color: rgb(84, 49, 236);
+    }
+}

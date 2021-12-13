@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="/public/img/fav.ico" type="image/x-icon"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/style/nav.css">
+    <script src="https://kit.fontawesome.com/ec87a17681.js" crossorigin="anonymous"></script>
+    <title>Rodribook</title>
+
+    <meta property="og:title" content="Rodribook" />
+    <meta property="og:type" content="website" />
+ <!--    <meta property="og:url" content="http://   .com.ar" /> -->
+    <!-- <meta property="og:image:url" content="/public/img/logo.png" />  -->
+    <meta property="og:description" content="Conectate con el mundo." />
+</head>
+<body>
+
+       
+  
+        <nav>
+            <div class="btnTheme">
+                <input type="checkbox" id="Cboxtheme">
+                <label for="Cboxtheme" class="Cboxlabel">
+                    <div class="circulo"></div>
+                </label>
+            </div>
+     
+            <div class="nav-center">
+                <nav-header class="espaciar">
+                    <div class="logo">
+                        <a href="/">
+                            <div  class="logoPed">
+                                r
+                            </div>
+                        </a>
+                    </div> 
+    
+    
+                    <div class="nav-button">
+                        <div class="burger-dash">
+                        </div>
+                    </div>
+    
+                </nav-header>  
+    
+                <ul class="links">
+            
+                    <li class="homeactive">
+                        <!-- cambiar esto dinamicamente dsp -->             
+                        <a href="/user/profile/{{req.session.isAuth}}">
+                            <i class="fas fa-user"></i>
+                            <span class="userName" id="nameTagAxios">{{User.nombre}}</span>
+                        </a>
+                    </li>
+        
+                    <li >
+                        <a href="#footer">Contacto</a> 
+                    </li>
+    
+                    <li>                    
+                        <a id="logOutBtn" href="/user/logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </li>
+                </ul> 
+            </div>
+        </nav>
+
+
+
+
+        <main class="sombra" id="newYear2022Container">
+            <header>
+                <fieldset id="fieldsetCtDown">
+                    <legend class="legendCentrada">
+                        <img src="/public/img/chinchin.png" class="billetinLegend">
+                        <div class="legendAbajo">
+                  
+                            <img src="/public/img/chinchin.png" class="billetinLegend izq">
+                            <img src="/public/img/chinchin.png" class="billetinLegend">
+                            <img src="/public/img/chinchin.png" class="billetinLegend dcha">
+                        </div>
+                    </legend>
+                    <h2 class="texto-cuentaRegresiva">   
+                        Cuenta regresiva para año nuevo 2022.
+                    </h2>
+                </fieldset>
+            </header>
+           
+            <div class="container-timer">
+    
+                <div id="cuentaRegresiva">
+                    <div class="seccion semanas">
+                        <h4 class="semanas"></h4>
+                        <span>semanas</span>
+                    </div>
+    
+                    <div class="seccion dias">
+                        <h4 class="dias"></h4>
+                        <span>días</span>
+                    </div>
+    
+                    <div class="seccion horas">
+                        <h4 class="horas"></h4>
+                        <span>horas</span>
+                    </div>
+    
+                    <div class="seccion minutos">
+                        <h4 class="minutos"></h4>
+                        <span>minutos</span>
+                    </div>
+              
+                    <div class="seccion segundos">
+                        <h4 class="segundos"></h4>
+                        <span>segundos </span>
+                    </div>
+                </div>
+            </div>
+    
+        </main>
+    
+        <div class="lineaSeparadora"></div>
+    
+        <div class="headerBackend sombra"><h2 class="animation3">Dejá un mensaje para tus amigos.<span></span></h2> </div>
+        <section id="seccionBackend" class="sombra">
+            <div class="alert-container nombre" >
+                <!-- COMPLETAR DSP ALERTAS -->
+            </div>
+            <form id="formMsjeFbookero" >
+                <input type="text" id="inputNombre" placeholder="Nombre *" maxlength="40"> 
+                <label for="inputNombre"></label>
+                
+    
+                <div class="alert-container msje">
+                    <!-- COMPLETAR DSP ALERTAS -->
+                </div>
+                <textarea type="text" id="inputSaludo" placeholder="Mensaje... * &#128151; "></textarea>
+                <label for="inputSaludo"></label>
+    
+                <div class="emoticons">
+                    <button class="emoticon" type="button">&#128512;</button >
+                    <button class="emoticon" type="button">&#128516;</button >
+                    <button class="emoticon" type="button">&#128525;</button >
+                    <button class="emoticon" type="button">&#128151;</button >
+                    
+                </div>
+    
+                <div class="alert-container sexo">
+                    <!-- COMPLETAR DSP ALERTAS -->
+                </div>
+                <fieldset><legend>Indicar sexo * </legend>
+    
+                    <div class="radiobtnsGroup">
+                        <input type="radio" name="sexo" id="radioMasculino" value="masculino">
+                        <label for="radioMasculino">Masculino</label>
+                        <input type="radio" name="sexo" id="radioFemenino" value="femenino">
+                        <label for="radioFemenino">Femenino</label>
+                        <input type="radio" name="sexo" id="radioBinario" value="binario">
+                        <label for="radioBinario">Binario-ortodoxo</label>
+                    </div>
+    
+                </fieldset>
+    
+                <input type="submit" value="Enviar mensaje" class="btn EnviarSaludo">
+            </form>
+            
+            <div id="alert-success">
+            </div>
+    
+        </section>
+    
+        <div class="lineaSeparadora"></div>
+        <section id="foroFacebookero">
+            <h2 id="logoRodriBook">RODRIBOOK</h2>
+            <div class="containerMsjes">
+                {{algo}}
+            </div>
+    
+        </section>  
+        
+        <footer id="footer">
+
+            contacto@rohelaw.com.ar |<span> Rodrigo Hernán López </span> 
+
+        </footer>
+
+    <!--  AXIOS  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- JS COMPONENTS -->    
+    <script src="/public/components/ctaregresiva.js"></script>
+    <script src="./components/navFunctionality.js"></script>
+    <script src="./components/emoticonsFunctionality.js"></script>
+    <script src="./axiosbrowserReq.js"></script>
+    <script src="/public/components/themeBtn.js"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Lobster&family=PT+Sans&family=Roboto+Condensed:wght@300&family=Roboto+Mono:ital,wght@1,100&family=Roboto:wght@100&display=swap');
+
+:root{
+    --blue:#1c2d4c;
+    --transition:.5s;
+    --black: rgb(29, 27, 27);
+    --white: whitesmoke;
+    --whiteMainTag: white;
+    --fontAgustinRocha:.9rem;
+    --fontChica:1.1rem;
+    --fontMed:1.5rem;
+    --fontGrande:2rem;
+    --fontSuperG: 2.5rem;
+    --fbBody:#18191a;
+    --fbMessageBody:#242526;
+    --fb3erBody:rgb(66, 66, 75);
+    --fbFontColorNormal:#e4e6eb;
+    --fbFontGrey: #9a9da1;
+    --fbBackgroundTransparente: #7f8083;
+    --fbBlueOficial:#4267B2;
+    --fbBlueOficial2:#4569b1;
+    --fbBlueBackgroundUser: #2D88FF33;
+    --fbHoverColor: rgba(255,255,255,0.1);
+    --greyless:rgb(180, 174, 174);
+    --light:rgb(226, 220, 220);
+    --lightBorderBtns: rgba(240,246,252,.1);
+    --lightblue:#1877f2;
+    --green:#42b72a;
+}
+
+body{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--fbBody);
+    padding: 0 16px;
+    
+}
+
+a{text-decoration: none;
+    color: inherit; 
+}
+
+/*------para q no se choque con el  fixed nav------------*/
+header{
+    margin-top: 60px;
+}
+
+/*-------------------------------MAIN-------------------------------------------*/
+
+main {
+
+    padding: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin:180px 0 60px;
+    background-color: var(--whiteMainTag);
+    color: var(--fbBody); 
+    border-radius: 5px;
+
+   display: grid;
+   place-items: center;
+   row-gap: 50px;
+
+   border: 1px solid var(--light);
+   box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+   -webkit-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+   -moz-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+}
+
+.marginLine{
+    height: .2px ;
+    background-color: rgb(61, 59, 59);
+    width: 100%;
+}
+ main h1{
+    margin-top: 30px;
+} 
+main .userNombreContainer, main .userEmailContainer,
+main .userPasswordContainer{
+    border-radius: 5px;
+    background-color: var(--fbBlueOficial2);
+    padding: 20px 10px;
+    letter-spacing: 1px;
+    font-size: var(--fontChica);
+    display: grid;
+    grid-template-columns: auto 100px;
+    width: 100%;
+}
+main .userNombreContainer:hover, main .userEmailContainer:hover,
+main .userPasswordContainer:hover{
+    background-color: rgb(50, 61, 78);
+}
+main input{
+    font-size: var(--fontChica);
+    letter-spacing: 1px;
+    padding: 5px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+}
+main .userPasswordContainer, main input{
+    color:white;
+}
+main .userPasswordContainer{
+    cursor: pointer;
+}
+/*all button in editing section*/
+main .editBtnscontainer button{
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--fontChica);
+    transition: var(--transition);
+    margin: 3px 0;
+}
+main .editBtn{
+    background-color: #18191a;
+    color: #e4e6eb;
+    border: 1px solid var(--fb3erBody);  
+}
+main .editBtn:hover{
+    border-color:var(--greyless) 
+}
+
+main .saveBtn{
+    background-color: rgba(34, 92, 52, 0.8);
+    color: var(--white);
+    border: 1px solid rgb(30, 119, 66);
+}
+main .saveBtn:hover{
+    background-color: rgb(30, 119, 66)
+}
+
+/*---------ALERT MESSAGES---------------------------*/
+#formAlertMessages{
+    border-radius: inherit;
+    background-color: rgb(236, 165, 165);
+    width: 100%;
+    padding: 20px 10px; 
+    display: none;
+
+    color: crimson;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+#formAlertMessages.success{
+    background-color: rgb(165, 236, 192);
+    color: rgb(29, 97, 40);
+
+}
+/*----------------DANGER ZONE / DELETE REQ-------------------------------*/
+/*--------------------aca vamos a tener q rever los colores del boton para el light mode*/
+section#deleteContainer{
+    color: var(--fbBody);
+    padding: 16px;
+    border-radius: 5px;
+    border: 1px solid #f85149;
+    margin: 60px 0 90px 0;
+    display: grid;
+    row-gap: 15px;
+
+}
+#deleteForm{
+    display: grid;
+    grid-template-columns: auto 100px;
+    min-height: 100px;
+    padding-top: 15px;
+
+}
+#deleteForm .textoDelete{
+    justify-self: left;
+    align-self:flex-start;
+}
+.textoDelete h3{
+    padding: 0px 0 15px;
+}
+/*----dos botones estiliza---*/
+.deleteBtn{
+    cursor: pointer;
+    align-self: center;
+    padding: 10px ;
+    font-size: var(--fontChica);
+    border-radius: 6px;
+    background-color: var(--fbMessageBody);
+    color: #f85149;
+    border: 1px solid rgba(240,246,252,.1);
+    transition: .3s;
+}
+.deleteBtn:hover{
+    border-color: #f85149;
+    background-color: #da3633;
+    color: var(--white);
+}
+/*-------------------FOOTER Y BODY--------------*/
+body{
+    max-width: 980px;
+    margin: auto;
+    background-color: var(--white);
+    color: var(--fbBody)
+}
+html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  #page-container {
+    flex: 1 0 auto;
+  }  
+
+footer{
+
+    flex-shrink: 0;
+    padding: 15px 30px;
+    text-align: center;
+    border-top: var(--light) solid 1px;
+    color: var(--fbBlueOficial);
+    font-weight: 300;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+    font-size: 17px;
+    line-height: 25px;
+ 
+   
+}
+
+footer span {
+    padding-top: 5px;
+    color: var(--green)
+} 
+
+
+
+
+/*-------------------------------------------*/
+/*-----------DELETE ACCOUNT OVERLAY-----------------*/
+
+.transparenciaOverlay{
+    background-color: var(--overlayReg);
+    position: fixed;
+    top:0;
+    /*Se cortaba antes del fin de la pagin*/
+    bottom: 0;
+    left:0;
+    right: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.overlay{
+    background-color: var(--white);
+    max-width: 415px;
+    border: 1px solid var(--light);
+    border-radius: 3px;
+    box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -1px 7px 18px 0px rgba(0,0,0,0.25);
+    padding-top: 20px;
+    /*p q haya margen en modo responsive*/
+    margin: 0 15px;
+
+}
+
+.overlay header{
+    margin: 0 20px;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light);
+    position: relative;
+}
+.overlay header h3{
+    font-size: 30px;
+    padding-bottom:3px ;
+}
+.overlay header p{
+    padding-bottom:10px ;
+}
+i#closeDeleteAccountOverlay{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.bannerBorrarCuenta{
+    margin: 30px 0 20px;
+    padding: 10px 20px;
+    border-top:1px solid  rgba(212,167,44);
+    border-bottom:1px solid  rgba(212,167,44); ;
+    background-color: #fff8c5;
+    color: black;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+#registerBtnOverlay{
+    margin: 0 auto;
+    line-height: 35px;
+    font-size: 18px;
+}
+.errorContainer{
+    color:crimson;
+    margin: 20px;
+}
+.successContainer{
+    color: rgb(63, 168, 77);
+    margin: 20px;
+}
+.overlay form input{
+    border-radius: 6px;
+    border: 1px solid var(--light);
+    letter-spacing: 1px;
+    padding: 14px 16px;
+    margin: 20px 20px;
+    font-size: 17px;
+    /*Sin esto se contrae*/
+    width: calc( 100% - 40px) ;
+}
+.overlay input:focus{
+    outline: none;
+    border: 1px solid var(--lightblue);
+}
+.overlay input:focus::-webkit-input-placeholder {
+    color: var(--greyless);
+}
+/*el resto esta estilizado en el 1er boton*/
+.overlay #confirmAccountDeletionBtn{
+    text-align: center;
+    margin: 20px;
+}
+#confirmPasswordChangeBtn {
+    display: block;
+    margin: 20px auto 20px auto;
+
+  width: calc( 100% - 40px) ;  
+}
+
+
+/*-------------------MEDIA QUERY------------------------*/
+
+@media only screen and (max-width: 608px)  {
+    body{
+        margin: 0 10px;
+    } 
+    
+}
+@media (max-width: 416px){
+    footer {  
+        font-size: 15px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;   
+    }
+    main .userNombreContainer, 
+    main .userEmailContainer, 
+    main .userPasswordContainer {  
+     grid-template-columns: 1fr;
+    }
+    main input,
+    main .userPasswordContainer{
+        text-align: center;
+    }
+    body{
+        padding: 0;
+    }
+}
